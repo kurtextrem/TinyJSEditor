@@ -6,29 +6,80 @@
         The Stylesheet for TinyJSEditor
 */
 
-.tje_button{
+/* Include font */
+@import 'http://fonts.googleapis.com/css?family=Candal';
 
+/* Fancy Webkit effects */
+@-webkit-keyframes animate_b {
+	0% {
+		font-weight: normal !important;
+	}
+	50% {
+		font-weight: bolder !important;
+		opacity: .5;
+		font-size: medium;
+	}
+	100% {
+		font-weight: bold !important;
+		opacity: 1;
+	}
+}
+@-webkit-keyframes animate_i {
+	0% {
+		font-style: normal !important;
+	}
+	50% {
+		font-style: oblique !important;
+		opacity: .5;
+	}
+	100% {
+		font-style: italic !important;
+		opacity: 1;
+	}
 }
 
+/* For all buttons */
+.tje_button{
+	border: 1px solid grey !important;
+	border-radius: 5px;
+}
+.tje_button:focus{
+	outline: 1px solid orange;
+}
+
+.tje_button:active{
+	/*box-shadow: inset black 1px 1px 0px !important;*/
+	box-shadow: none !important;
+}
+
+/* for big button */
 .tje_b{
 	color: black;
-	font-weight: bold;
+	font-family: 'Candal', arial, serif;
+	box-shadow: silver 1px 1px 0px;
 }
 
+.tje_b:hover{
+	-webkit-animation-name: animate_b;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: ease;
+}
+
+/* for italic button */
 .tje_i{
 	color: white;
 	background-color: black;
 	box-shadow: black 1px 1px 0px;
-	border: 1px solid grey;
-	border: 0;
 	font-family: monospace;
 	border-radius: 5px;
 }
 
-.tje_i:active{
-	box-shadow: black 1px 1px 0px;
-}
-
 .tje_i:hover{
-	
+	-webkit-animation-name: animate_i;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: ease;
 }
