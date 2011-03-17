@@ -9,39 +9,30 @@
 /* Include font */
 @import 'http://fonts.googleapis.com/css?family=Candal';
 
-/* Fancy Webkit effects */
-@-webkit-keyframes animate_b {
-	0% {
-		font-weight: normal !important;
-	}
-	50% {
-		font-weight: bolder !important;
-		opacity: .5;
-		font-size: medium;
-	}
-	100% {
-		font-weight: bold !important;
-		opacity: 1;
-	}
-}
-@-webkit-keyframes animate_i {
-	0% {
-		font-style: normal !important;
-	}
-	50% {
-		font-style: oblique !important;
-		opacity: .5;
-	}
-	100% {
-		font-style: italic !important;
-		opacity: 1;
-	}
-}
-
 /* For all buttons */
 .tje_button{
 	border: 1px solid grey !important;
 	border-radius: 5px;
+
+    -webkit-transition-duration: 3s;
+	-moz-transition-duration: 3s;
+	-o-transition-duration: 3s;
+	transition-duration: 3s;
+
+    -webkit-transition-timing-function: ease-in-out;
+	-moz-transition-timing-function: ease-in-out;
+	-o-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+
+	/*-webkit-animation-direction: alternate;
+	-moz-animation-direction: alternate;
+	-o-animation-direction: alternate;
+	animation-direction: alternate;
+
+	-webkit-animation-iteration-count: infinite;
+	-moz-animation-iteration-count: infinite;
+	-o-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;*/
 }
 .tje_button:focus{
 	outline: 1px solid orange;
@@ -57,14 +48,14 @@
 	color: black;
 	font-family: 'Candal', arial, serif;
 	box-shadow: silver 1px 1px 0px;
+	-webkit-transition-property: font-weight;
+	-moz-transition-property: font-weight;
+	-o-transition-property: font-weight;
+	transition-property: font-weight;
 }
 
 .tje_b:hover{
-	-webkit-animation-name: animate_b;
-	-webkit-animation-duration: 3s;
-	-webkit-animation-direction: alternate;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-timing-function: ease;
+	font-weight: bold;
 }
 
 /* for italic button */
@@ -74,12 +65,12 @@
 	box-shadow: black 1px 1px 0px;
 	font-family: monospace;
 	border-radius: 5px;
+	-webkit-transition-property: font-style;
+	-moz-transition-property: font-style;
+	-o-transition-property: font-style;
+	transition-property: font-style;
 }
 
 .tje_i:hover{
-	-webkit-animation-name: animate_i;
-	-webkit-animation-duration: 3s;
-	-webkit-animation-direction: alternate;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-timing-function: ease;
+	font-style: italic;
 }
