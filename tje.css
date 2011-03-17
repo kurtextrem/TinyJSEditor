@@ -1,0 +1,16 @@
+/*
+    Document   : TinyJSEditor
+    Created on : 17.03.2011, 19:56:35
+    Author     : Kurtextrem
+    Description:
+        The Stylesheet for TinyJSEditor
+*/
+
+.tje_button{
+
+}
+
+.tje_b{
+	color: black;
+	font-weight: bold;
+}
