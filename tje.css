@@ -14,3 +14,21 @@
 	color: black;
 	font-weight: bold;
 }
+
+.tje_i{
+	color: white;
+	background-color: black;
+	box-shadow: black 1px 1px 0px;
+	border: 1px solid grey;
+	border: 0;
+	font-family: monospace;
+	border-radius: 5px;
+}
+
+.tje_i:active{
+	box-shadow: black 1px 1px 0px;
+}
+
+.tje_i:hover{
+	
+}
