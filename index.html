@@ -6,14 +6,22 @@
         <title>Welcome to TJE</title>
     </head>
     <body>
+		<a href="http://github.com/kurtextrem/TinyJSEditor"><img style="position: absolute; top: 0; left: 30em; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
 		<h1>Welcome to TJE (TinyJSEditor)</h1>
-		<div class='tinyjseditor'>
-			<div class='toolbar'>
-				<button class='tje_button tje_b'>B</button>
-				<button class='tje_button tje_i'>I</button>
+		<section id='DOM'><span>Working example:</span>
+			<div class='tinyjseditor'>
+				<div class='toolbar'>
+					<button class='tje_button tje_b'>B</button>
+					<button class='tje_button tje_i'>I</button>
+				</div>
+				<textarea placeholder='Write some text!'>Write some text!</textarea>
 			</div>
-			<textarea placeholder='Write some text!'>Write some text!</textarea>
-		</div>
+		</section>
+		<hr>
+		<section id='example'>
+			<textarea placeholder='Example' id='text_sample'>Example</textarea><br>
+			<button onclick='$("#text_sample").TJE()'>Make it Editor :)</button>
+		</section>
 		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'></script> <!-- jQuery is needed ! -->
 		<script src='jquery.tje.js'></script> <!-- for debugging -->
 		<!-- <script src='jquery.tje.min.js'></script> --> <!-- for produktive use -->
