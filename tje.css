@@ -13,16 +13,18 @@
 .tje_button{
 	border: 1px solid grey !important;
 	border-radius: 5px;
+	width: 28px;
+	height: 23px;
 
     -webkit-transition-duration: 3s;
 	-moz-transition-duration: 3s;
 	-o-transition-duration: 3s;
 	transition-duration: 3s;
 
-    -webkit-transition-timing-function: ease-in-out;
-	-moz-transition-timing-function: ease-in-out;
-	-o-transition-timing-function: ease-in-out;
-	transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease;
+	-moz-transition-timing-function: ease;
+	-o-transition-timing-function: ease;
+	transition-timing-function: ease;
 
 	/*-webkit-animation-direction: alternate;
 	-moz-animation-direction: alternate;
@@ -75,29 +77,45 @@
 	font-style: italic;
 }
 
-/* For switcher */
-#slider {
-  -webkit-transition: margin-left 1s ease-in-out;
-  -moz-transition: margin-left 1s ease-in-out;
-  -o-transition: margin-left 1s ease-in-out;
-  transition: margin-left 1s ease-in-out;
-  border-radius: 3px;
-  background-color: black;
-  width: 90px;
-  padding: 1px;
+/* for "switcher" */
+
+input[type=range]{
+	width: 50px;
+	background-color: black;
+	border-radius: 5px;
+	padding: 2px;
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	appearance: none;
 }
 
-#slider > span{
-	width: 30px;
-	background-color: silver;
+input[type=range]::-webkit-slider-thumb, input[type=range]::-moz-slider-thumb, input[type=range]::-o-slider-thumb, input[type=range]::slider-thumb {
+    background-color: silver;
+    height: 20px;
+	width: 25px;
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+
+#wysiwyg{
+	resize: both;
+	cursor: auto;
+	overflow: auto;
+	-webkit-appearance: textarea;
+	color: black;
+	background-color: white;
+	border: 1px solid;
+	padding: 1px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	font: inherit;
+	color: initial;
 	display: inline-block;
-	cursor: pointer;
-}
-
-#quellcode:active{
-
-}
-
-#wys:active{
-
+	height: 50px;
+	text-align: left;
 }
