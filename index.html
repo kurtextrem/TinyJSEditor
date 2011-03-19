@@ -4,23 +4,46 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="tje.css">
         <title>Welcome to TJE</title>
+		<style>
+			h1{
+				-webkit-box-reflect: below 1px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.88, #FFF), to(#FFF));
+				margin-bottom: 2em;
+			}
+			body{
+				background-color: rgb(50, 151, 253);
+				color: white;
+			}
+			#body{
+				border: 5px solid darkblue;
+				border-radius: 5px;
+				width: 700px !important;
+				margin: auto;
+				padding: 10px;
+			}
+			section:not(#body){
+				font-family: 'Candal';
+			}
+		</style>
     </head>
     <body>
-		<a href="http://github.com/kurtextrem/TinyJSEditor"><img style="position: absolute; top: 0; left: 30em; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
-		<h1>Welcome to TJE (TinyJSEditor) Version 0.1</h1>
-		<section id='DOM'><span>Working example:</span>
-			<div class='tinyjseditor'>
-				<div class='toolbar'>
-					<button class='tje_button tje_b'>B</button>
-					<button class='tje_button tje_i'>I</button>
+		<section id='body'>
+			<a href="http://github.com/kurtextrem/TinyJSEditor"><img style="position: absolute; top: 0; left: 56em; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
+			<h1>Welcome to TJE (TinyJSEditor) Version 0.1</h1>
+			<section id='DOM'><span>Working example:</span>
+				<div class='tinyjseditor'>
+					<div class='toolbar'>
+						<button class='tje_button tje_b'>B</button>
+						<button class='tje_button tje_i'>I</button>
+					</div>
+					<textarea placeholder='Write some text!'>Write some text!</textarea>
 				</div>
-				<textarea placeholder='Write some text!'>Write some text!</textarea>
-			</div>
-		</section>
-		<hr>
-		<section id='example'>
-			<textarea placeholder='Example' id='text_sample'>Example</textarea><br>
-			<button onclick='$("#text_sample").TJE()'>Make it Editor :)</button>
+			</section>
+			<hr>
+			<section id='example'><span>"Launch" example:</span><br>
+				<textarea placeholder='Example' id='text_sample'>Example</textarea><br>
+				<button onclick='$("#text_sample").TJE()'>Make it Editor :)</button>
+			</section>
+			<hr>
 		</section>
 		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'></script> <!-- jQuery is needed ! -->
 		<script src='jquery.tje.js'></script> <!-- for debugging -->
