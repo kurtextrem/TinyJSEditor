@@ -4,10 +4,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="tje.css">
         <title>Welcome to TJE</title>
+		<!-- only for demo -->
 		<style>
 			h1{
 				-webkit-box-reflect: below 1px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.88, #FFF), to(#FFF));
+				box-reflect: below 1px linear-gradient(0 0, 0 100%, from(transparent), color-stop(.88, #FFF), to(#FFF));
 				margin-bottom: 2em;
+				text-shadow: white 1px 1px 0px;
+				-webkit-text-stroke: 1px lightBlue;
+				text-stroke: 1px lightBlue;
 			}
 			body{
 				background-color: rgb(50, 151, 253);
@@ -24,6 +29,7 @@
 				font-family: 'Candal';
 			}
 		</style>
+		<!-- /-->
     </head>
     <body>
 		<section id='body'>
@@ -35,7 +41,13 @@
 						<button class='tje_button tje_b'>B</button>
 						<button class='tje_button tje_i'>I</button>
 					</div>
+					<div id='slider'>
+						<span>&nbsp;</span>
+						<!--<span id='wys'>Editor</span>
+						<span id='quellcode'>Quellcode</span>-->
+					</div>
 					<textarea placeholder='Write some text!'>Write some text!</textarea>
+					<div id='wysiwyg'>And yeah, what you see, is what you get.</div>
 				</div>
 			</section>
 			<hr>

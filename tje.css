@@ -74,3 +74,30 @@
 .tje_i:hover{
 	font-style: italic;
 }
+
+/* For switcher */
+#slider {
+  -webkit-transition: margin-left 1s ease-in-out;
+  -moz-transition: margin-left 1s ease-in-out;
+  -o-transition: margin-left 1s ease-in-out;
+  transition: margin-left 1s ease-in-out;
+  border-radius: 3px;
+  background-color: black;
+  width: 90px;
+  padding: 1px;
+}
+
+#slider > span{
+	width: 30px;
+	background-color: silver;
+	display: inline-block;
+	cursor: pointer;
+}
+
+#quellcode:active{
+
+}
+
+#wys:active{
+
+}
