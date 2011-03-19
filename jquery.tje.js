@@ -2,10 +2,18 @@
 
 	$.fn.TJE = function( options, replace ) {
 
-		var template = "<div class='tinyjseditor'><div class='toolbar'><button class='tje_button tje_b'>B</button><button class='tje_button tje_i'>I</button><input type='range' min='0' max='1'><br></div><textarea>{textarea_value}</textarea><div id='wysiwyg' contenteditable>{textarea_value_compiled}</div></div>";
+		var template = {
+			parent_tpl: "<div class='tinyjseditor' id='{textarea_id}'><div class='toolbar'>{button_tpl}<br></div><textarea>{textarea_value}</textarea><div id='wysiwyg' contenteditable>{textarea_value_compiled}</div></div>",
+			button_tpl: "<button class='tje_button tje_{value}'>{value_first}</button>",
+			slider_tpl: "<input type='range' min='0' max='1'>",
+			compiled: {
+				button_tpl: '',
+				full_compiled: ''
+			}
+		}
 
-		var default_settings = {
-			big: true,
+		var settings = {
+			bold: true,
 			italic: true,
 			strike: true,
 			overline: true,
@@ -18,41 +26,55 @@
 			'[i]': '<i>', // yes, <i> is allowed in HTML5, and <b> too!
 			'[s]': '<del>', // instead of <s>, cause this isnt allowed in html5 xD
 			'[o]': '<span style="text-decoration: overline;">', // there is no element for this
-			'[u]': '<span style="text-decoration: underline;">'
+			'[u]': '<span style="text-decoration: underline;">', // - " -
+			// begin of tpl replace
+			tpl_replace: {
+				textarea_id: this.attr('id'),
+				textarea_value: this.text(),
+				textarea_value_compiled: this.html(),
+				button_tpl: ''
+			}
 		}
 
-		var html = "<div class='tinyjseditor' id='"+this.attr('id')+"'><div class='toolbar'>";
-		this.attr('id', ''); // delete id from textfield
 
-		if ( options ) {
-			$.extend( default_settings, options );
-		}
+		// For example to enable underline, call $('#example').TJE({underline: true});
+		if (options)
+			$.extend( settings, options );
 
-		if (replacement){
+		// If somebody uses XHTML, call $('#example').TJE(0, {'[i]': '<span ...'});
+		if (replace)
 			$.extend(default_replace, replace);
-		}
 
-		if(default_settings.big){
-			html += "<button class='tje_button tje_b'>B</button>";
-		}
+		// to create the toolbar
+		$.each(settings, function(key, value) {
+			// if its false, dont create the toolbar
+			if(value && key != 'switcher'){
+				var to_add = template.button_tpl.replace('{value}', key).replace('{value_first}', key.substr(0, 1).toUpperCase()); // so create the tpl...
+				template.compiled.button_tpl += to_add; // ...and add it
+			}else if(key == 'switcher'){
+				template.compiled.button_tpl += template.slider_tpl;
+			}
+		});
 
-		if(default_settings.italic){
-			html += "<button class='tje_button tje_i'>I</button>";
-		}
+		// add it to replace
+		default_replace.tpl_replace.button_tpl = template.compiled.button_tpl;
 
-		html += '</div></div>'; // close toolbar div
-		html = $(html); // make it jQuery object
+		// replace
+		$.each(default_replace.tpl_replace, function(replace_val, with_val){
+			template.compiled.full_compiled = template.parent_tpl.replace('{'+replace_val+'}', with_val);
+		});
 
-		// append to DOM
-		this.before(html);
-		this.appendTo(html.attr('id'));
+		// append it to body
+		this.after(template.compiled.full_compiled);
+		// and remove old textarea :)
+		this.remove();
 
 		// register button clicks
 		$('.tje_button').click(function(){
-			$(html.attr('id')).find('textarea').val(this.val()+'iksde');
+			$(this.attr('id')).find('textarea').val(this.text()+'test');
 		});
 
-		return html;
+		return $(template.compiled.full_compiled);
 
 	};
 })( jQuery );

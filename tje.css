@@ -46,7 +46,7 @@
 }
 
 /* for big button */
-.tje_b{
+.tje_bold{
 	color: black;
 	font-family: 'Candal', arial, serif;
 	box-shadow: silver 1px 1px 0px;
@@ -56,12 +56,12 @@
 	transition-property: font-weight;
 }
 
-.tje_b:hover{
+.tje_bold:hover{
 	font-weight: bold;
 }
 
 /* for italic button */
-.tje_i{
+.tje_italic{
 	color: white;
 	background-color: black;
 	box-shadow: black 1px 1px 0px;
@@ -73,12 +73,12 @@
 	transition-property: font-style;
 }
 
-.tje_i:hover{
+.tje_italic:hover{
 	font-style: italic;
 }
 
 /* for "strike" */
-.tje_s{
+.tje_strike{
 	color: white;
 	background-color: black;
 	box-shadow: black 1px 1px 0px;
@@ -89,9 +89,42 @@
 	transition-property: text-decoration;
 }
 
-.tje_s:hover{
+.tje_strike:hover{
 	text-decoration: line-through;
 }
+
+/* for "overline" */
+.tje_overline{
+	color: white;
+	background-color: black;
+	box-shadow: black 1px 1px 0px;
+	border-radius: 5px;
+	-webkit-transition-property: text-decoration;
+	-moz-transition-property: text-decoration;
+	-o-transition-property: text-decoration;
+	transition-property: text-decoration;
+}
+
+.tje_overline:hover{
+	text-decoration: overline;
+}
+
+/* for underline */
+.tje_underline{
+	color: white;
+	background-color: black;
+	box-shadow: black 1px 1px 0px;
+	border-radius: 5px;
+	-webkit-transition-property: text-decoration;
+	-moz-transition-property: text-decoration;
+	-o-transition-property: text-decoration;
+	transition-property: text-decoration;
+}
+
+.tje_underline:hover{
+	text-decoration: underline;
+}
+
 
 /* for "switcher" */
 
