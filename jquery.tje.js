@@ -34,7 +34,7 @@
 			$(html.attr('id')).find('textarea').val(this.val()+'iksde');
 		});
 
-		return $(html);
+		return html;
 
 	};
 })( jQuery );
