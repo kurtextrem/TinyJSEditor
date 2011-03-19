@@ -77,6 +77,22 @@
 	font-style: italic;
 }
 
+/* for "strike" */
+.tje_s{
+	color: white;
+	background-color: black;
+	box-shadow: black 1px 1px 0px;
+	border-radius: 5px;
+	-webkit-transition-property: text-decoration;
+	-moz-transition-property: text-decoration;
+	-o-transition-property: text-decoration;
+	transition-property: text-decoration;
+}
+
+.tje_s:hover{
+	text-decoration: line-through;
+}
+
 /* for "switcher" */
 
 input[type=range]{
@@ -95,6 +111,7 @@ input[type=range]::-webkit-slider-thumb, input[type=range]::-moz-slider-thumb, i
     background-color: silver;
     height: 20px;
 	width: 25px;
+	cursor: pointer;
 
 	-webkit-appearance: none;
 	-moz-appearance: none;
