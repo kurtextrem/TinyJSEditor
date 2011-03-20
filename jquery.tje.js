@@ -2,10 +2,13 @@
 
 	$.fn.TJE = function( options, replace ) {
 
+		var $this = this;
+		$this.id = $this.attr('id');
+
 		var template = {
-			parent_tpl: "<div class='tinyjseditor' id='{textarea_id}'><div class='toolbar'>{button_tpl}<br></div><textarea>{textarea_value}</textarea><div id='wysiwyg' contenteditable>{textarea_value_compiled}</div></div>",
+			parent_tpl: "<div class='tinyjseditor' id='{textarea_id}'><div class='toolbar'>{button_tpl}<br></div><textarea>{textarea_value}</textarea><div class='wysiwyg' contenteditable>{textarea_value_compiled}</div></div>",
 			button_tpl: "<button class='tje_button tje_{value}'>{value_first}</button>",
-			slider_tpl: "<input type='range' min='0' max='1'>",
+			slider_tpl: "<input type='range' min='0' max='1' value='0' title='Left: Editor, Right: Quellcode(editor)'>",
 			compiled: {
 				button_tpl: '',
 				full_compiled: ''
@@ -18,7 +21,8 @@
 			strike: true,
 			overline: true,
 			underline: false,
-			switcher: true
+			quellcode: true,
+			editor: true
 		};
 
 		var default_replace = {
@@ -29,9 +33,9 @@
 			'[u]': '<span style="text-decoration: underline;">', // <u> is obsolet
 			// begin of tpl replace
 			tpl_replace: {
-				textarea_id: this.attr('id'),
-				textarea_value: this.text(),
-				textarea_value_compiled: this.html(),
+				textarea_id: $this.id,
+				textarea_value: $this.text(),
+				textarea_value_compiled: $this.html(),
 				button_tpl: ''
 			}
 		}
@@ -48,11 +52,12 @@
 		// to create the toolbar
 		$.each(settings, function(key, value) {
 			// if its false, dont create the toolbar
-			if(value && key != 'switcher'){
+			if(value && key != 'quellcode' && key != 'editor'){
 				var to_add = template.button_tpl.replace('{value}', key).replace('{value_first}', key.substr(0, 1).toUpperCase()); // so create the tpl...
 				template.compiled.button_tpl += to_add; // ...and add it
-			}else if(key == 'switcher'){
+			}else if(value){
 				template.compiled.button_tpl += template.slider_tpl;
+				return false;
 			}
 		});
 
@@ -71,13 +76,19 @@
 		this.remove();
 
 		// register button clicks
-		$('.tje_button').click(function(){
-			$(this.attr('id')).find('textarea').val(this.text()+'test');
+		$('#'+$this.id+' .tje_button').click(function(){
+			var textarea = $('#'+$this.id).find('textarea');
+			var text = $(this).text();
+			text = text.toLowerCase();
+			textarea.text(textarea.text()+'['+text+'][/'+text+']');
 		});
-		$('input[type=range]').change(function(){
-			$(this.attr('id')).find('textarea').toggle();
-			$(this.attr('id')).find('wysiwyg').toggle();
+
+		$('#'+$this.id+' input[type=range]').change(function(){ // a bit buggy
+			$('#'+$this.id).find('textarea').toggle();
+			$('#'+$this.id).find('.wysiwyg').toggle();
 		});
+
+		$('#'+$this.id).find('textarea').hide();
 
 		return $(template.compiled.full_compiled);
 

@@ -42,16 +42,16 @@
 						<button class='tje_button tje_italic'>I</button>
 						<button class='tje_button tje_strike'>S</button>
 						<button class='tje_button tje_overline'>O</button>
-						<input type='range' min='0' max='1'><br>
+						<input type='range' min='0' max='1' title='Left: Editor, Right: Quellcode(editor)' value='0'><br>
 					</div>
-					<textarea placeholder='Write some text!'>Write some text!</textarea>
-					<div class='wysiwyg' style='display: none;' contenteditable>And yeah, what you <i>see</i>, is what you <i>get</i>.</div>
+					<textarea placeholder='Write some text!' style='display: none;'>Write some text!</textarea>
+					<div class='wysiwyg' contenteditable>And yeah, what you <i>see</i>, is what you <i>get</i>.</div>
 				</div>
 			</section>
 			<hr>
 			<section id='example'><span>"Launch" example:</span><br>
 				<textarea placeholder='Example' id='text_sample'>Example</textarea><br>
-				<button onclick='$("#text_sample").TJE()'>Make it Editor :)</button>
+				<button onclick='$("#text_sample").TJE(); $(this).hide();'>Make it Editor :)</button>
 			</section>
 			<hr>
 		</section>

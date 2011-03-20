@@ -168,4 +168,5 @@ input[type=range]::-webkit-slider-thumb, input[type=range]::-moz-slider-thumb, i
 	display: inline-block;
 	height: 50px;
 	text-align: left;
+	min-width: 177px;
 }
