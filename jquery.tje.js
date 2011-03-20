@@ -24,9 +24,9 @@
 		var default_replace = {
 			'[b]': '<strong>',
 			'[i]': '<i>', // yes, <i> is allowed in HTML5, and <b> too!
-			'[s]': '<del>', // instead of <s>, cause this isnt allowed in html5 xD
+			'[s]': '<del>', // cause <s> is obsolet
 			'[o]': '<span style="text-decoration: overline;">', // there is no element for this
-			'[u]': '<span style="text-decoration: underline;">', // - " -
+			'[u]': '<span style="text-decoration: underline;">', // <u> is obsolet
 			// begin of tpl replace
 			tpl_replace: {
 				textarea_id: this.attr('id'),
@@ -58,10 +58,11 @@
 
 		// add it to replace
 		default_replace.tpl_replace.button_tpl = template.compiled.button_tpl;
+		template.compiled.full_compiled = template.parent_tpl;
 
 		// replace
 		$.each(default_replace.tpl_replace, function(replace_val, with_val){
-			template.compiled.full_compiled = template.parent_tpl.replace('{'+replace_val+'}', with_val);
+			template.compiled.full_compiled = template.compiled.full_compiled.replace('{'+replace_val+'}', with_val);
 		});
 
 		// append it to body
@@ -72,6 +73,10 @@
 		// register button clicks
 		$('.tje_button').click(function(){
 			$(this.attr('id')).find('textarea').val(this.text()+'test');
+		});
+		$('input[type=range]').change(function(){
+			$(this.attr('id')).find('textarea').toggle();
+			$(this.attr('id')).find('wysiwyg').toggle();
 		});
 
 		return $(template.compiled.full_compiled);

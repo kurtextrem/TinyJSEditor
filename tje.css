@@ -16,17 +16,17 @@
 	width: 28px;
 	height: 23px;
 
-    -webkit-transition-duration: 3s;
+    /*-webkit-transition-duration: 3s;
 	-moz-transition-duration: 3s;
 	-o-transition-duration: 3s;
 	transition-duration: 3s;
 
-    -webkit-transition-timing-function: ease;
+    -webkit-transition-timing-function: linear;
 	-moz-transition-timing-function: ease;
 	-o-transition-timing-function: ease;
 	transition-timing-function: ease;
 
-	/*-webkit-animation-direction: alternate;
+	-webkit-animation-direction: alternate;
 	-moz-animation-direction: alternate;
 	-o-animation-direction: alternate;
 	animation-direction: alternate;
@@ -50,10 +50,10 @@
 	color: black;
 	font-family: 'Candal', arial, serif;
 	box-shadow: silver 1px 1px 0px;
-	-webkit-transition-property: font-weight;
+	/*-webkit-transition-property: font-weight;
 	-moz-transition-property: font-weight;
 	-o-transition-property: font-weight;
-	transition-property: font-weight;
+	transition-property: font-weight;*/
 }
 
 .tje_bold:hover{
@@ -67,10 +67,10 @@
 	box-shadow: black 1px 1px 0px;
 	font-family: monospace;
 	border-radius: 5px;
-	-webkit-transition-property: font-style;
+	/*-webkit-transition-property: font-style;
 	-moz-transition-property: font-style;
 	-o-transition-property: font-style;
-	transition-property: font-style;
+	transition-property: font-style;*/
 }
 
 .tje_italic:hover{
@@ -83,10 +83,10 @@
 	background-color: black;
 	box-shadow: black 1px 1px 0px;
 	border-radius: 5px;
-	-webkit-transition-property: text-decoration;
+	/*-webkit-transition-property: text-decoration;
 	-moz-transition-property: text-decoration;
 	-o-transition-property: text-decoration;
-	transition-property: text-decoration;
+	transition-property: text-decoration;*/
 }
 
 .tje_strike:hover{
@@ -99,10 +99,10 @@
 	background-color: black;
 	box-shadow: black 1px 1px 0px;
 	border-radius: 5px;
-	-webkit-transition-property: text-decoration;
+	/*-webkit-transition-property: text-decoration;
 	-moz-transition-property: text-decoration;
 	-o-transition-property: text-decoration;
-	transition-property: text-decoration;
+	transition-property: text-decoration;*/
 }
 
 .tje_overline:hover{
@@ -115,10 +115,10 @@
 	background-color: black;
 	box-shadow: black 1px 1px 0px;
 	border-radius: 5px;
-	-webkit-transition-property: text-decoration;
+	/*-webkit-transition-property: text-decoration;
 	-moz-transition-property: text-decoration;
 	-o-transition-property: text-decoration;
-	transition-property: text-decoration;
+	transition-property: text-decoration;*/
 }
 
 .tje_underline:hover{
@@ -152,7 +152,7 @@ input[type=range]::-webkit-slider-thumb, input[type=range]::-moz-slider-thumb, i
 	appearance: none;
 }
 
-#wysiwyg{
+.wysiwyg{
 	resize: both;
 	cursor: auto;
 	overflow: auto;
