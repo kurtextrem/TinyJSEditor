@@ -1,5 +1,30 @@
 (function( $ ){
 
+	function parseBBCodes(text, bbcodes){
+		if(typeof(bbcodes) == 'undefined'){
+			var bbcodes = {
+				'[b]': '<b>',
+				'[i]': '<i>', // yes, <i> is allowed in HTML5, and <b> too!
+				'[s]': '<del>', // cause <s> is obsolet
+				'[o]': '<span style="text-decoration: overline;">', // there is no element for this
+				'[u]': '<span style="text-decoration: underline;">', // <u> is obsolet
+				// negatives
+				'[/b]': '</b>',
+				'[/i]': '</i>', // yes, <i> is allowed in HTML5, and <b> too!
+				'[/s]': '</del>', // cause <s> is obsolet
+				'[/o]': '</span>', // there is no element for this
+				'[/u]': '</span>' // <u> is obsolet
+			}
+		}
+
+		// create text
+		$.each(bbcodes, function(key, value){
+			text = text.replace(key, value);
+		});
+
+		return text;
+	}
+
 	$.fn.TJE = function( options, replace ) {
 
 		var $this = this;
@@ -25,19 +50,11 @@
 			editor: true
 		};
 
-		var default_replace = {
-			'[b]': '<strong>',
-			'[i]': '<i>', // yes, <i> is allowed in HTML5, and <b> too!
-			'[s]': '<del>', // cause <s> is obsolet
-			'[o]': '<span style="text-decoration: overline;">', // there is no element for this
-			'[u]': '<span style="text-decoration: underline;">', // <u> is obsolet
-			// begin of tpl replace
-			tpl_replace: {
-				textarea_id: $this.id,
-				textarea_value: $this.text(),
-				textarea_value_compiled: $this.html(),
-				button_tpl: ''
-			}
+		var tpl_replace = {
+			textarea_id: $this.id,
+			textarea_value: $this.text(),
+			textarea_value_compiled: $this.html(),
+			button_tpl: ''
 		}
 
 
@@ -62,11 +79,11 @@
 		});
 
 		// add it to replace
-		default_replace.tpl_replace.button_tpl = template.compiled.button_tpl;
+		tpl_replace.button_tpl = template.compiled.button_tpl;
 		template.compiled.full_compiled = template.parent_tpl;
 
 		// replace
-		$.each(default_replace.tpl_replace, function(replace_val, with_val){
+		$.each(tpl_replace, function(replace_val, with_val){
 			template.compiled.full_compiled = template.compiled.full_compiled.replace('{'+replace_val+'}', with_val);
 		});
 
@@ -78,9 +95,12 @@
 		// register button clicks
 		$('#'+$this.id+' .tje_button').click(function(){
 			var textarea = $('#'+$this.id).find('textarea');
+			var editor = $('#'+$this.id).find('.wysiwyg');
 			var text = $(this).text();
 			text = text.toLowerCase();
-			textarea.text(textarea.text()+'['+text+'][/'+text+']');
+			textarea.text(textarea.text()+'['+text+'][/'+text+']'); // insert into quellcode editor
+			editor.html(parseBBCodes(textarea.text())); // insert into editor
+
 		});
 
 		$('#'+$this.id+' input[type=range]').change(function(){ // a bit buggy
