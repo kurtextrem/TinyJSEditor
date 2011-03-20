@@ -108,6 +108,18 @@
 			$('#'+$this.id).find('.wysiwyg').toggle();
 		});
 
+		$('#'+$this.id+' textarea').keyup(function(){
+			var editor = $('#'+$this.id).find('.wysiwyg');
+			editor.html(parseBBCodes($(this).text())); // insert into editor
+		});
+
+		$('#'+$this.id+' .wysiwyg').keyup(function(){
+			var textarea = $('#'+$this.id).find('textarea');
+			var text = $(this).text();
+			textarea.text(text); // insert into quellcode editor
+			$(this).html(parseBBCodes(text)); // insert into editor
+		});
+
 		$('#'+$this.id).find('textarea').hide();
 
 		return $(template.compiled.full_compiled);
