@@ -1,3 +1,12 @@
+/**
+ * Provides the TinyJSEditor function.
+ *
+ * @author Kurtextrem
+ * @contact kurtextrem@gmail.com
+ * @licens CC BY-SA http://creativecommons.org/licenses/by-sa/3.0/
+ * @copyright 2011-XXXX
+ * @version 0.1
+ */
 (function( $ ){
 
 	function parseBBCodes(text, bbcodes){
@@ -47,13 +56,14 @@
 			overline: true,
 			underline: false,
 			quellcode: true,
-			editor: true
+			editor: true,
+			render_html: true
 		};
 
 		var tpl_replace = {
 			textarea_id: $this.id,
 			textarea_value: $this.text(),
-			textarea_value_compiled: $this.html(),
+			textarea_value_compiled: (settings.render_html)?  parseBBCodes($this.html()) : parseBBCodes($this.text()),
 			button_tpl: ''
 		}
 
@@ -66,13 +76,13 @@
 		if (replace)
 			$.extend(default_replace, replace);
 
-		// to create the toolbar
+		// create the toolbar
 		$.each(settings, function(key, value) {
 			// if its false, dont create the toolbar
-			if(value && key != 'quellcode' && key != 'editor'){
+			if(value && key != 'quellcode' && key != 'editor' && key != 'render_html'){
 				var to_add = template.button_tpl.replace('{value}', key).replace('{value_first}', key.substr(0, 1).toUpperCase()); // so create the tpl...
 				template.compiled.button_tpl += to_add; // ...and add it
-			}else if(value){
+			}else if(value && key != 'render_html'){
 				template.compiled.button_tpl += template.slider_tpl;
 				return false;
 			}

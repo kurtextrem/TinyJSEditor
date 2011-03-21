@@ -1,10 +1,12 @@
-/*
-    Document   : TinyJSEditor
-    Created on : 17.03.2011, 19:56:35
-    Author     : Kurtextrem
-    Description:
-        The Stylesheet for TinyJSEditor
-*/
+/**
+ * Provides the TinyJSEditor function.
+ *
+ * @author Kurtextrem
+ * @contact kurtextrem@gmail.com
+ * @licens CC BY-SA http://creativecommons.org/licenses/by-sa/3.0/
+ * @copyright 2011-XXXX
+ * @version 0.1
+ */
 
 /* Include font */
 @import 'http://fonts.googleapis.com/css?family=Candal';
