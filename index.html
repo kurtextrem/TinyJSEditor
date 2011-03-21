@@ -54,9 +54,18 @@
 				<button onclick='$("#text_sample").TJE(); $(this).hide();'>Make it Editor :)</button>
 			</section>
 			<hr>
+			<section id='example2'><span>Working example:</span><br>
+				<textarea>This is my text!</textarea>
+			</section>
 		</section>
 		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'></script> <!-- jQuery is needed ! -->
 		<script src='jquery.tje.js'></script> <!-- for debugging -->
 		<!-- <script src='jquery.tje.min.js'></script> --> <!-- for produktive use -->
+		<!-- for demo -->
+		<script>
+			$(document).ready(function(){
+				$('#example2 > textarea').TJE();
+			});
+		</script>
     </body>
 </html>

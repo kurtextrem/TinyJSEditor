@@ -3,4 +3,16 @@ TinyJSEditor
 
 Whats TinyJSEditor?
 -------------------
-TinyJSEditor is a modern Editor. It's baed on jQuery. The effects comes from CSS3 (only Webkit atm). Editing works in all modern Browsers!
+TinyJSEditor is a modern Editor. It's based on jQuery.
+
+The WYSIWYG Editor doesn't work!
+--------------------------------
+Aw, crap. Maybe your Browser doesn't support the HTML5 Attribute "contenteditable".
+
+
+***
+Version History
+---------------
+
+0.1
+- initial release

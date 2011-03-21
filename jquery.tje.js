@@ -28,7 +28,7 @@
 	$.fn.TJE = function( options, replace ) {
 
 		var $this = this;
-		$this.id = $this.attr('id');
+		$this.id = ($this.attr('id') == '') ? $.now() : $this.attr('id'); // if textarea id is empty, use a time id.
 
 		var template = {
 			parent_tpl: "<div class='tinyjseditor' id='{textarea_id}'><div class='toolbar'>{button_tpl}<br></div><textarea>{textarea_value}</textarea><div class='wysiwyg' contenteditable>{textarea_value_compiled}</div></div>",
