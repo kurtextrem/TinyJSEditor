@@ -13,6 +13,19 @@ Diffrents between Quellcode Editor and WYSIWYG Editor?
 ------------------------------------------------------
 In Quellcode Editor you can see all Code you've written. In "normal" Editor see the result from the code (HTML / BB Code).
 
+Requirements
+------------
+* jQuery (> 1.4 should work fine)
+* jquery.tje.js / jquery.tje.min.js (download here)
+* tje.css (download here)
+
+Settings
+--------
+* Call it similar to that: $('#example').TJE();
+* For example to enable underline, call $('#example').TJE({underline: true});
+* If you use XHTML(5), call $('#example').TJE(0, {'[i]': '<span ...'});
+* For XHTML change the templates: $('#example').TJE(0, 0, {your new templates});
+
 Version History
 ---------------
 

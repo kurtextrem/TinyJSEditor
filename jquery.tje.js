@@ -34,7 +34,7 @@
 		return text;
 	}
 
-	$.fn.TJE = function( options, replace ) {
+	$.fn.TJE = function( options, replace, templates ) {
 
 		var $this = this;
 		$this.id = ($this.attr('id') == '') ? $.now() : $this.attr('id'); // if textarea id is empty, use a time id.
@@ -62,8 +62,8 @@
 
 		var tpl_replace = {
 			textarea_id: $this.id,
-			textarea_value: $this.text(),
-			textarea_value_compiled: (settings.render_html)?  parseBBCodes($this.html()) : parseBBCodes($this.text()),
+			textarea_value: $this.val(),
+			textarea_value_compiled: (settings.render_html) ?  parseBBCodes($this.html()) : parseBBCodes($this.text()),
 			button_tpl: ''
 		}
 
@@ -74,7 +74,11 @@
 
 		// If somebody uses XHTML, call $('#example').TJE(0, {'[i]': '<span ...'});
 		if (replace)
-			$.extend(default_replace, replace);
+			$.extend(tpl_replace, replace);
+
+		// use xhtml? Change the Templates: $('#example').TJE(0, 0, {your new templates});
+		if (template)
+			$.extend(template, templates);
 
 		// create the toolbar
 		$.each(settings, function(key, value) {
@@ -108,8 +112,8 @@
 			var editor = $('#'+$this.id).find('.wysiwyg');
 			var text = $(this).text();
 			text = text.toLowerCase();
-			textarea.text(textarea.text()+'['+text+'][/'+text+']'); // insert into quellcode editor
-			editor.html(parseBBCodes(textarea.text())); // insert into editor
+			textarea.text(textarea.val()+'['+text+'][/'+text+']'); // insert into quellcode editor
+			editor.html(parseBBCodes(textarea.val())); // insert into editor
 
 		});
 
@@ -120,13 +124,13 @@
 
 		$('#'+$this.id+' textarea').keyup(function(){
 			var editor = $('#'+$this.id).find('.wysiwyg');
-			editor.html(parseBBCodes($(this).text())); // insert into editor
+			editor.html(parseBBCodes($(this).val())); // insert into editor
 		});
 
 		$('#'+$this.id+' .wysiwyg').keyup(function(){
 			var textarea = $('#'+$this.id).find('textarea');
 			var text = $(this).text();
-			textarea.text(text); // insert into quellcode editor
+			textarea.val(text); // insert into quellcode editor
 			$(this).html(parseBBCodes(text)); // insert into editor
 		});
 
