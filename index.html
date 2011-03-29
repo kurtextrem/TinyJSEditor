@@ -2,8 +2,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<!-- needed for TJE -->
 		<link rel="stylesheet" href="tje.css">
-        <title>Welcome to TJE</title>
+
+		<title>Welcome to TJE</title>
+
 		<!-- only for demo -->
 		<style>
 			h1{
@@ -38,38 +42,25 @@
 			<h1>Welcome to TJE (TinyJSEditor) Version 0.1</h1>
 		</header>
 		<section id='body'>
-			<section id='DOM'><span><del>Working</del> Design example:</span>
-				<div class='tinyjseditor'>
-					<div class='toolbar'>
-						<button class='tje_button tje_bold'>B</button>
-						<button class='tje_button tje_italic'>I</button>
-						<button class='tje_button tje_strike'>S</button>
-						<button class='tje_button tje_overline'>O</button>
-						<input type='range' min='0' max='1' title='Left: Editor, Right: Quellcode(editor)' value='0'><br>
-					</div>
-					<textarea placeholder='Write some text!' style='display: none;'>Write some text!</textarea>
-					<div class='wysiwyg' contenteditable>And yeah, what you <i>see</i>, is what you <i>get</i>. [s]You can use HTML![/s]</div>
-				</div>
-			</section>
-			<hr>
 			<section id='example'><span>"Launch" example:</span><br>
-				<textarea placeholder='Example' id='text_sample'><i>Example</i> [s]strike[/s]</textarea><br>
+				<textarea placeholder='Example' id='text_sample'>[i]Example[/i] [s]strike[/s]</textarea><br>
 				<button onclick='$("#text_sample").TJE(); $(this).hide();'>Make it Editor :)</button>
 			</section>
 			<hr>
 			<section id='example2'><span>Working example:</span><br>
-				<textarea>This is my text!</textarea>
+				<textarea>TThis is my text! [s]Don't use <b>HTML</b>[/s]. [b]Use BB Codes![/b]</textarea>
 			</section>
 		</section>
 		<hr>
 		<footer>
-			<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>This work is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons BY-SA</a>.
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons Licens" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>This work is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons BY-SA</a>.
 			<br>
 			<p>Author: Kurtextrem, <br> Contact: kurtextrem@gmail.com (I can speak english, german and french (french not very well)</p>
 		</footer>
+
 		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'></script> <!-- jQuery is needed ! -->
-		<script src='jquery.tje.js'></script> <!-- for debugging -->
-		<!-- <script src='jquery.tje.min.js'></script> --> <!-- for produktive use -->
+		<script src='jquery.tje.min.js'></script> <!-- include TJE (without .min for debugging) -->
+
 		<!-- for demo -->
 		<script>
 			$(document).ready(function(){

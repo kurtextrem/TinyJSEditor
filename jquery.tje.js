@@ -36,6 +36,10 @@
 
 	$.fn.TJE = function( options, replace, templates ) {
 
+		/****************/
+		/* INIT SECTION */
+		/****************/
+
 		var $this = this;
 		$this.id = ($this.attr('id') == '') ? $.now() : $this.attr('id'); // if textarea id is empty, use a time id.
 
@@ -67,6 +71,9 @@
 			button_tpl: ''
 		}
 
+		/*******************/
+		/* OPTIONS SECTION */
+		/*******************/
 
 		// For example to enable underline, call $('#example').TJE({underline: true});
 		if (options)
@@ -80,6 +87,10 @@
 		if (template)
 			$.extend(template, templates);
 
+		/****************/
+		/* MAIN SECTION */
+		/****************/
+
 		// create the toolbar
 		$.each(settings, function(key, value) {
 			// if its false, dont create the toolbar
@@ -91,6 +102,10 @@
 				return false;
 			}
 		});
+
+		/***************/
+		/* END SECTION */
+		/***************/
 
 		// add it to replace
 		tpl_replace.button_tpl = template.compiled.button_tpl;
@@ -105,6 +120,11 @@
 		this.after(template.compiled.full_compiled);
 		// and remove old textarea :)
 		this.remove();
+
+
+		/******************/
+		/* EVENTS SECTION */
+		/******************/
 
 		// register button clicks
 		$('#'+$this.id+' .tje_button').click(function(){
@@ -136,6 +156,7 @@
 
 		$('#'+$this.id).find('textarea').hide();
 
+		// so now all is working
 		return $(template.compiled.full_compiled);
 
 	};
