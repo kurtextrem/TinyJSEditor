@@ -13,14 +13,14 @@
 		if(typeof(bbcodes) == 'undefined'){
 			var bbcodes = {
 				'[b]': '<b>',
-				'[i]': '<i>', // yes, <i> is allowed in HTML5, and <b> too!
-				'[s]': '<del>', // cause <s> is obsolet
+				'[i]': '<i>',
+				'[s]': '<s>', // <s> isn't obsolet in html5.
 				'[o]': '<span style="text-decoration: overline;">', // there is no element for this
 				'[u]': '<span style="text-decoration: underline;">', // <u> is obsolet
 				// negatives
 				'[/b]': '</b>',
-				'[/i]': '</i>', // yes, <i> is allowed in HTML5, and <b> too!
-				'[/s]': '</del>', // cause <s> is obsolet
+				'[/i]': '</i>',
+				'[/s]': '</s>', // <s> isn't obsolet in html5.
 				'[/o]': '</span>', // there is no element for this
 				'[/u]': '</span>' // <u> is obsolet
 			}
