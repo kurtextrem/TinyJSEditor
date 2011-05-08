@@ -1,11 +1,11 @@
 /**
- * Provides the TinyJSEditor function.
+ * TinyJSEditor is a tiny and small HTML5 + Javascript Editor.
  *
- * @author Kurtextrem
- * @contact kurtextrem@gmail.com
+ * @author kurtextrem <kurtextrem@gmail.com>
  * @licens CC BY-SA http://creativecommons.org/licenses/by-sa/3.0/
  * @copyright 2011-XXXX
  * @version 0.1
+ *
  */
 (function( $ ){
 
@@ -41,7 +41,7 @@
 		/****************/
 
 		var $this = this;
-		$this.id = ($this.attr('id') == '') ? $.now() : $this.attr('id'); // if textarea id is empty, use a time id.
+		$this.id = ($this.prop('id') == '') ? $.now() : $this.prop('id'); // if textarea id is empty, use a time id.
 
 		var template = {
 			parent_tpl: "<div class='tinyjseditor' id='{textarea_id}'><div class='toolbar'>{button_tpl}<br></div><textarea>{textarea_value}</textarea><div class='wysiwyg' contenteditable>{textarea_value_compiled}</div></div>",
