@@ -34,6 +34,21 @@
 		return text;
 	}
 
+	function substr_replace (str, replace, start, length) {
+		// http://kevin.vanzonneveld.net
+		// +   original by: Brett Zamir (http://brett-zamir.me)
+		if (start < 0) { // start position in str
+			start = start + str.length;
+		}
+		length = length !== undefined ? length : str.length;
+		if (length < 0) {
+			length = length + str.length - start;
+		}
+		return str.slice(0, start) + replace.substr(0, length) + replace.slice(length) + str.slice(start + length);
+	}
+
+
+
 	$.fn.TJE = function( options, replace, templates ) {
 
 		/****************/
@@ -132,7 +147,13 @@
 			var editor = $('#'+$this.id).find('.wysiwyg');
 			var text = $(this).text();
 			text = text.toLowerCase();
-			textarea.text(textarea.val()+'['+text+'][/'+text+']'); // insert into quellcode editor
+			if(window.getSelection() == ''){
+				textarea.text(textarea.val()+'['+text+'][/'+text+']'); // insert into quellcode editor
+			}else{
+				var selection = window.getSelection(); // get selection
+				console.log(window.getSelection());
+				substr_replace(textarea.val(), '['+text+']'+selection()+'[/'+text+']', selection.extentOffset, (selection.anchorOffset-selection.extentOffset)); // replace string
+			}
 			editor.html(parseBBCodes(textarea.val())); // insert into editor
 
 		});
