@@ -1,12 +1,13 @@
 /**
- * Provides the TinyJSEditor function.
+ * TinyJSEditor is a tiny and small HTML5 + Javascript Editor.
  *
- * @author Kurtextrem
- * @contact kurtextrem@gmail.com
- * @licens CC BY-SA http://creativecommons.org/licenses/by-sa/3.0/
+ * @author kurtextrem <kurtextrem@gmail.com>
+ * @license CC BY-SA http://creativecommons.org/licenses/by-sa/3.0/
  * @copyright 2011-XXXX
  * @version 0.1
+ *
  */
+
 
 /* Include font */
 @import 'http://fonts.googleapis.com/css?family=Candal';

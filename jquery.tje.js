@@ -2,7 +2,7 @@
  * TinyJSEditor is a tiny and small HTML5 + Javascript Editor.
  *
  * @author kurtextrem <kurtextrem@gmail.com>
- * @licens CC BY-SA http://creativecommons.org/licenses/by-sa/3.0/
+ * @license CC BY-SA http://creativecommons.org/licenses/by-sa/3.0/
  * @copyright 2011-XXXX
  * @version 0.1
  *

@@ -3,7 +3,7 @@ TinyJSEditor
 
 Whats TinyJSEditor?
 -------------------
-TinyJSEditor is a modern Editor. It's based on jQuery.
+TinyJSEditor is a modern Editor. It's a jQuery Plugin.
 
 The WYSIWYG Editor doesn't work!
 --------------------------------
@@ -16,8 +16,8 @@ In Quellcode Editor you can see all Code you've written. In "normal" Editor see 
 Requirements
 ------------
 * [jQuery](http://jquery.com) (> 1.4 should work fine)
-* jquery.tje.js / jquery.tje.min.js (download from github)
-* tje.css (download from github)
+* jquery.tje.js / jquery.tje.min.js (download from github) (~5.83 KB / ~2.51 KB)
+* tje.css (download from github) (~4.05 KB)
 
 Settings
 --------
