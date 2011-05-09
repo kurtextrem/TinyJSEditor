@@ -152,7 +152,7 @@
 			}else{
 				var selection = window.getSelection(); // get selection
 				console.log(window.getSelection());
-				substr_replace(textarea.val(), '['+text+']'+selection()+'[/'+text+']', selection.extentOffset, (selection.anchorOffset-selection.extentOffset)); // replace string
+				substr_replace(textarea.val(), '['+text+']'+selection+'[/'+text+']', selection.extentOffset, (selection.anchorOffset-selection.extentOffset)); // replace string
 			}
 			editor.html(parseBBCodes(textarea.val())); // insert into editor
 
