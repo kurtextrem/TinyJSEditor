@@ -6,23 +6,30 @@
  * @copyright 2011-XXXX
  * @version 0.1
  *
+ * @package jquery.tje.js
+ *
  */
 (function( $ ){
 
 	function parseBBCodes(text, bbcodes){
 		if(typeof(bbcodes) == 'undefined'){
-			var bbcodes = {
+			bbcodes = {
 				'[b]': '<b>',
 				'[i]': '<i>',
 				'[s]': '<s>', // <s> isn't obsolet in html5.
 				'[o]': '<span style="text-decoration: overline;">', // there is no element for this
 				'[u]': '<span style="text-decoration: underline;">', // <u> is obsolet
+				// following effects from http://line25.com/articles/using-css-text-shadow-to-create-cool-text-effects
+				'[n]': '<span style="text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;">',
+				'[d]': '<span style="text-shadow: 0px 2px 3px #666;">',
 				// negatives
 				'[/b]': '</b>',
 				'[/i]': '</i>',
 				'[/s]': '</s>', // <s> isn't obsolet in html5.
 				'[/o]': '</span>', // there is no element for this
-				'[/u]': '</span>' // <u> is obsolet
+				'[/u]': '</span>', // <u> is obsolet
+				'[/n]': '</span>',
+				'[/d]': '</d>',
 			}
 		}
 
@@ -174,7 +181,16 @@
 			$(this).html(parseBBCodes(text)); // insert into editor
 		});
 
+		/*$('#'+$this.id+' .wysiwyg').resize(function(){
+			$('#'+$this.id+' textarea').css({width: this.width(), height: this.height()});
+		});
+
+		$('#'+$this.id+' textarea').resize(function(){
+			$('#'+$this.id+' .wysiwyg').css({width: this.width(), height: this.height()});
+		});*/
+
 		$('#'+$this.id).find('textarea').hide();
+
 
 		// so now all is working
 		return $(template.compiled.full_compiled);
