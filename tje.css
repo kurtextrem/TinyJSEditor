@@ -52,7 +52,7 @@
 .tje_bold{
 	color: black;
 	font-family: 'Candal', arial, serif;
-	box-shadow: silver 1px 1px 0px;
+	box-shadow: silver 1px 1px 0;
 	/*-webkit-transition-property: font-weight;
 	-moz-transition-property: font-weight;
 	-o-transition-property: font-weight;
@@ -67,7 +67,7 @@
 .tje_italic{
 	color: white;
 	background-color: black;
-	box-shadow: black 1px 1px 0px;
+	box-shadow: black 1px 1px 0;
 	font-family: monospace;
 	border-radius: 5px;
 	/*-webkit-transition-property: font-style;
@@ -84,7 +84,7 @@
 .tje_strike{
 	color: white;
 	background-color: black;
-	box-shadow: black 1px 1px 0px;
+	box-shadow: black 1px 1px 0;
 	border-radius: 5px;
 	/*-webkit-transition-property: text-decoration;
 	-moz-transition-property: text-decoration;
@@ -100,7 +100,7 @@
 .tje_overline{
 	color: white;
 	background-color: black;
-	box-shadow: black 1px 1px 0px;
+	box-shadow: black 1px 1px 0;
 	border-radius: 5px;
 	/*-webkit-transition-property: text-decoration;
 	-moz-transition-property: text-decoration;
@@ -116,7 +116,7 @@
 .tje_underline{
 	color: white;
 	background-color: black;
-	box-shadow: black 1px 1px 0px;
+	box-shadow: black 1px 1px 0;
 	border-radius: 5px;
 	/*-webkit-transition-property: text-decoration;
 	-moz-transition-property: text-decoration;
@@ -151,6 +151,7 @@ input[type=range]::-webkit-slider-thumb, input[type=range]::-moz-slider-thumb, i
 
 	-webkit-appearance: none;
 	-moz-appearance: none;
+	-ms-appearance: textarea;
 	-o-appearance: none;
 	appearance: none;
 }
@@ -160,7 +161,11 @@ input[type=range]::-webkit-slider-thumb, input[type=range]::-moz-slider-thumb, i
 	cursor: auto;
 	overflow: auto;
 	-webkit-appearance: textarea;
-	color: black;
+	-moz-appearance: textarea;
+	-ms-appearance: textarea;
+	-o-appearance: textarea;
+	appearance: textarea;
+	//color: black;
 	background-color: white;
 	border: 1px solid;
 	padding: 1px;
